@@ -6,10 +6,9 @@ import {
 import { NavigationContainer, NavigatorScreenParams, RouteProp } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FC } from 'react';
-import { RootSiblingParent } from 'react-native-root-siblings';
 import Toast from 'react-native-toast-message';
 
-import { useAppContext } from '../context/AppContext';
+import { useAppContext } from '../hooks/useAppContext';
 import { CartScreen } from '../screens/CartPage';
 import { CatalogItemScreen } from '../screens/CatalogItemScreen';
 import { CatalogScreen } from '../screens/CatalogScreen';
@@ -50,7 +49,6 @@ const screenOptions: (props: {
     },
     tabBarActiveTintColor: 'tomato',
     tabBarInactiveTintColor: 'gray',
-    // headerShown: route.params.,
   };
 };
 

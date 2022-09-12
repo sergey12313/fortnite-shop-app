@@ -1,11 +1,9 @@
 import { memo } from 'react';
-import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
 
-import { ProductCard } from '../components/CardProduct';
-import { useAppContext } from '../context/AppContext';
+import { ProductsList } from '../components/ProductsList';
 
 const _HomeScreen = () => {
-  const { shopData } = useAppContext();
   return (
     <View
       style={{
@@ -14,13 +12,7 @@ const _HomeScreen = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <FlatList
-        data={shopData}
-        renderItem={({ item }) => <ProductCard shopItem={item} />}
-        keyExtractor={(item) => item.mainId}
-        initialNumToRender={20}
-        numColumns={2}
-      />
+      <ProductsList />
     </View>
   );
 };

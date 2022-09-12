@@ -1,12 +1,16 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { FC } from 'react';
 
-import { AppLayout } from './components/AppLayout';
-import { AppContext, AppContextProvider } from './context/AppContext';
+import { AppLayout } from './Layout/AppLayout';
+import { AppContextProvider } from './context/AppContext';
 
+const queryClient = new QueryClient();
 const App: FC = () => {
   return (
     <AppContextProvider>
-      <AppLayout />
+      <QueryClientProvider client={queryClient}>
+        <AppLayout />
+      </QueryClientProvider>
     </AppContextProvider>
   );
 };
