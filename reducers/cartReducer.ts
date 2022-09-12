@@ -4,6 +4,7 @@ export const enum CartStoreActionType {
   Decrement,
   Increment,
   Remove,
+  Reset,
 }
 export interface AddAction {
   type: CartStoreActionType.Add;
@@ -21,7 +22,15 @@ export interface RemoveAction {
   type: CartStoreActionType.Remove;
   payload: string;
 }
-export type CartActions = AddAction | DecrementAction | IncrementAction | RemoveAction;
+export interface ResetAction {
+  type: CartStoreActionType.Reset;
+}
+export type CartActions =
+  | AddAction
+  | DecrementAction
+  | IncrementAction
+  | RemoveAction
+  | ResetAction;
 
 export const cartReducer = (state: CartState, action: CartActions): CartState => {
   switch (action.type) {
@@ -74,6 +83,9 @@ export const cartReducer = (state: CartState, action: CartActions): CartState =>
           name,
         },
       };
+    }
+    case CartStoreActionType.Reset: {
+      return {};
     }
     default: {
       return state;

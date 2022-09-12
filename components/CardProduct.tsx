@@ -9,7 +9,7 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import Toast from 'react-native-toast-message';
+import { useToast } from 'react-native-toast-notifications';
 
 import { useAppContext } from '../hooks/useAppContext';
 import { useAppNavigation } from '../hooks/useAppNavigation';
@@ -32,13 +32,10 @@ const _ProductCard: FC<ProductCardProps> = ({
 }) => {
   const navigation = useAppNavigation();
   const { dispatch } = useAppContext();
+  const toast = useToast();
   const onAddToCartClick = () => {
-    Toast.show({
-      topOffset: 100,
-      type: 'success',
-      visibilityTime: 800,
-      text1: `${displayName} добавлен в корзину 🛒`,
-    });
+    toast.show(`${displayName} добавлен в корзину 🛒`, {});
+
     dispatch({
       type: CartStoreActionType.Add,
       payload: {
