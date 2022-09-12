@@ -6,10 +6,9 @@ import {
 import { NavigationContainer, NavigatorScreenParams, RouteProp } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FC } from 'react';
-import Toast from 'react-native-toast-message';
 
 import { useAppContext } from '../hooks/useAppContext';
-import { CartScreen } from '../screens/CartPage';
+import { CartScreen } from '../screens/CartScreen';
 import { CatalogItemScreen } from '../screens/CatalogItemScreen';
 import { CatalogScreen } from '../screens/CatalogScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
@@ -29,7 +28,7 @@ const screenOptions: (props: {
   navigation: any;
 }) => BottomTabNavigationOptions = ({ route }) => {
   return {
-    tabBarIcon: ({ focused, color, size }) => {
+    tabBarIcon: ({ color }) => {
       let iconName;
       switch (route.name) {
         case 'Home': {
@@ -45,7 +44,7 @@ const screenOptions: (props: {
         }
       }
 
-      return <AntDesign name={iconName} size={size} color={color} />;
+      return <AntDesign name={iconName} size={32} color={color} />;
     },
     tabBarActiveTintColor: 'tomato',
     tabBarInactiveTintColor: 'gray',
@@ -78,11 +77,10 @@ export const AppLayout: FC = () => {
         <Tab.Screen
           name="Cart"
           component={CartScreen}
-          options={{ title: 'Корзина', tabBarBadge: cartListCount }}
+          options={{ title: 'Корзина', tabBarBadge: cartListCount > 0 ? cartListCount : null }}
         />
         <Tab.Screen name="Settings" component={SettingsScreen} options={{ title: 'Настройки' }} />
       </Tab.Navigator>
-      <Toast />
     </NavigationContainer>
   );
 };
