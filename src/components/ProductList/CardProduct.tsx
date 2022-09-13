@@ -11,10 +11,10 @@ import {
 } from 'react-native';
 import { useToast } from 'react-native-toast-notifications';
 
-import { useAppContext } from '../hooks/useAppContext';
-import { useAppNavigation } from '../hooks/useAppNavigation';
-import { ShopItem } from '../model/shopResponse';
-import { CartStoreActionType } from '../reducers/cartReducer';
+import { useAppContext } from '../../hooks/useAppContext';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { ShopItem } from '../../model/shopResponse';
+import { CartStoreActionType } from '../../reducers/cartReducer';
 
 interface ProductCardProps extends ViewProps {
   shopItem: ShopItem;
@@ -60,13 +60,15 @@ const _ProductCard: FC<ProductCardProps> = ({
   return (
     <TouchableOpacity style={cardStyle} onPress={navigateToProduct}>
       <Image source={{ uri: displayAssets[0].full_background }} style={imageStyle} />
-      <Text style={titleStyle} numberOfLines={2}>
-        {displayName}
-      </Text>
+      <View style={{ height: 35 }}>
+        <Text style={titleStyle} numberOfLines={2}>
+          {displayName}
+        </Text>
+      </View>
+
       <View
         style={{
           flexDirection: 'row',
-
           justifyContent: 'space-between',
           alignItems: 'center',
           marginTop: 5,
@@ -110,7 +112,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3.05,
     elevation: 4,
   },
-  titleStyle: { marginTop: 3, fontWeight: '400', flex: 1 },
+  titleStyle: {
+    marginTop: 3,
+    fontWeight: '400',
+    minHeight: 32,
+  },
   buttonStyle: {
     borderRadius: 300,
     borderStyle: 'solid',

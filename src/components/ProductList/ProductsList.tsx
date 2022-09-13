@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { FC } from 'react';
 import { Text, ViewProps } from 'react-native';
 
-import { useShopItemsQuery } from '../hooks/useShopItemsQuery';
+import { useShopItemsQuery } from '../../hooks/useShopItemsQuery';
 import { ProductCard } from './CardProduct';
 
 interface ProductFlatListProps extends ViewProps {}

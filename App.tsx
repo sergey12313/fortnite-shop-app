@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ToastProvider } from 'react-native-toast-notifications';
 
-import { AppLayout } from './Layout/AppLayout';
-import { AppContextProvider } from './context/AppContext';
+import { AppLayout } from './src/Layout/AppLayout';
+import { AppContextProvider } from './src/context/AppContext';
 
 const queryClient = new QueryClient();
 const App: FC = () => {

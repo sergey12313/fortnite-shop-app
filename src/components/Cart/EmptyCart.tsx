@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-import emptyCart from '../../assets/empty.png';
+import emptyCart from '../../../assets/empty.png';
 
 export const EmptyCart = () => {
   return (
