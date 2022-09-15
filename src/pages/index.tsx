@@ -8,10 +8,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FC } from 'react';
 
 import { useAppContext } from '../hooks/useAppContext';
-import { CartScreen } from '../screens/CartScreen';
-import { CatalogItemScreen } from '../screens/CatalogItemScreen';
-import { CatalogScreen } from '../screens/CatalogScreen';
-import { SettingsScreen } from '../screens/SettingsScreen';
+import { CartScreen } from '../pages/CartScreen';
+import { CatalogItemScreen } from '../pages/CatalogItemScreen';
+import { CatalogScreen } from '../pages/CatalogScreen';
+import { SettingsScreen } from '../pages/SettingsScreen';
 
 export type BottomTabNavigatorList = {
   Home: NavigatorScreenParams<StackNavigatorList>;
@@ -67,7 +67,7 @@ const Home = () => {
   );
 };
 
-export const AppLayout: FC = () => {
+export const Router: FC = () => {
   const { cartListCount } = useAppContext();
 
   return (

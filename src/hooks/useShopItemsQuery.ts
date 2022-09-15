@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getAllProducts } from '../services/apiRequests';
+import { shopAPI } from '../shared';
 
 export const useShopItemsQuery = () => {
-  return useQuery(['allProducts'], getAllProducts);
+  return useQuery(['allProducts'], shopAPI.getAllShopItems);
 };

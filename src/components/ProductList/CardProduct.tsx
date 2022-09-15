@@ -13,8 +13,8 @@ import { useToast } from 'react-native-toast-notifications';
 
 import { useAppContext } from '../../hooks/useAppContext';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
-import { ShopItem } from '../../model/shopResponse';
 import { CartStoreActionType } from '../../reducers/cartReducer';
+import { ShopItem } from '../../shared/api/model/shopResponse';
 
 interface ProductCardProps extends ViewProps {
   shopItem: ShopItem;

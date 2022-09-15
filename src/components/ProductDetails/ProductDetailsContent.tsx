@@ -3,10 +3,10 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { useToast } from 'react-native-toast-notifications';
 
 import { useAppContext } from '../../hooks/useAppContext';
-import { ProductItem } from '../../model/productResponse';
 import { CartStoreActionType } from '../../reducers/cartReducer';
+import { Product } from '../../shared/api/model/productResponse';
 
-export const ProductDetailsContent: FC<{ data: ProductItem }> = ({ data }) => {
+export const ProductDetailsContent: FC<{ data: Product }> = ({ data }) => {
   const { dispatch } = useAppContext();
   const toast = useToast();
   const onAddToCartClick = () => {

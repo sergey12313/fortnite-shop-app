@@ -1,6 +1,6 @@
 import { createContext, Dispatch, FC, PropsWithChildren, useReducer } from 'react';
 
-import { CartActions, cartReducer, CartState } from '../reducers/cartReducer';
+import { CartActions, cartReducer, CartState } from '../../reducers/cartReducer';
 
 interface IAppContext {
   cartState: CartState;

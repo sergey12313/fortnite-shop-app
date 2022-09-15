@@ -54,7 +54,7 @@ export interface ProductStyle {
   image: string;
 }
 
-export interface ProductItem {
+export interface Product {
   id: string;
   type: ProductType;
   name: string;
@@ -89,5 +89,5 @@ export interface ProductItem {
 
 export interface ProductResponse {
   result: boolean;
-  item: ProductItem;
+  item: Product;
 }
