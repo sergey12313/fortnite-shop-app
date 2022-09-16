@@ -1,4 +1,6 @@
+import { cartActions, cartModel } from '@entities/order';
 import { Feather } from '@expo/vector-icons';
+import { useAppDispatch } from '@shared/lib';
 import { FC, memo } from 'react';
 import {
   Dimensions,
@@ -32,9 +34,13 @@ const _ProductCard: FC<ProductCardProps> = ({
 }) => {
   const navigation = useAppNavigation();
   const { dispatch } = useAppContext();
+  const reduxDispatch = useAppDispatch();
+  const { addToCart } = cartActions;
+
   const toast = useToast();
   const onAddToCartClick = () => {
     toast.show(`${displayName} добавлен в корзину 🛒`, {});
+    reduxDispatch(addToCart({ id: mainId, name: displayName, price: finalPrice }));
 
     dispatch({
       type: CartStoreActionType.Add,

@@ -1,14 +1,22 @@
 import compose from 'compose-function';
 import { FC, PropsWithChildren } from 'react';
 
-import { WithAppContext } from './WithAppContext';
-import { WithGestureHandler } from './WithGestureHandler';
-import { WithQuery } from './WithQuery';
-import { WithToasts } from './WithToastProvider';
+import { AppContextProvider } from './AppContextProvider';
+import { GestureHandlerProvider } from './GestureHandlerProvider';
+import { QueryProvider } from './QueryProvider';
+import { ReduxProvider } from './ReduxProvider';
+import { ToastProvider } from './ToastProvider';
 
-export const WithProviders: FC<PropsWithChildren> = compose(
-  WithGestureHandler,
-  WithAppContext,
-  WithToasts,
-  WithQuery
-);
+export const WithProviders: FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <GestureHandlerProvider>
+      <ReduxProvider>
+        <AppContextProvider>
+          <ToastProvider>
+            <QueryProvider>{children}</QueryProvider>
+          </ToastProvider>
+        </AppContextProvider>
+      </ReduxProvider>
+    </GestureHandlerProvider>
+  );
+};

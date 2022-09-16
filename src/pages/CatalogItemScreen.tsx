@@ -2,8 +2,9 @@ import type { RouteProp } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 import { FC } from 'react';
 
-import { StackNavigatorList } from '../Layout/AppLayout';
 import { ProductDetailsLayout } from '../components/ProductDetails/ProductDetailsLayout';
+import { useAppSelector } from '../shared';
+import { StackNavigatorList } from './index';
 
 type CatalogItemScreenProps = RouteProp<StackNavigatorList, 'CatalogItem'>;
 
